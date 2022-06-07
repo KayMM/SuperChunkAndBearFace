@@ -12,6 +12,8 @@ public class DestroyGameObject : MonoBehaviour
     public int itemsRemaining;
     void Update() {
         slider.value = health;
+        health = health - .05f;
+
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -19,7 +21,9 @@ public class DestroyGameObject : MonoBehaviour
         if (collision.gameObject.tag == "Bone")
         {
             Destroy(collision.gameObject);
+            health = health + 20f;
         }
+
         if (collision.gameObject.tag == "Hedgehog")
         {
             Destroy(collision.gameObject);
